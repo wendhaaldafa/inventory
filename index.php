@@ -1,27 +1,3 @@
-<?php
-    include 'koneksi.php';
-
-    if(isset($_POST['submit'])) {
-
-        $insert = mysqli_query($conn, "insert into tb_inventori set
-
-        nama_aplikasi = '$_POST[nama_aplikasi]',
-        deskripsi_aplikasi = '$_POST[deskripsi_aplikasi]',
-        tgl_pembuatan = '$_POST[tgl_pembuatan]',
-        SKPD_pengampu = '$_POST[SKPD_pengampu]',
-        server = '$_POST[server]'
-        ");
-
-        if($insert) {
-            echo '<script>window.location="list.php"</script>';
-        }else {
-            echo 'huft'.mysqli_error($conn);
-        }
-
-        
-
-    }
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -31,79 +7,71 @@
     <title>Form</title>
     <link rel="stylesheet" type="text/css" href="css/style.css";>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- box Form -->
-    <br>
-        <a href="login.php">Keluar</a>
+    <div class="container">
+        <div class="sidebar">
+            <div class="header">
+                <div class="list-item">
+                    <a href="#">
+                        <span class="desk-header">Diskominfo Kab.Malang</span>
+                    </a>
+                </div>
+                <div class="logo2">
+                    <img src="" alt="">
+                </div>
+            </div>
 
-    <section class="box-form">
+            <div class="main">
+                <div class="list-item">
+                    <a href="mainbar.php">
+                    <img src="CSS/img/1200px-Home-icon.svg.png" alt="" class="icon2" width="20px">
+                        <span class="desk-header">Beranda</span>
+                    </a>
+                </div>
 
-        <h2 class="heading">
-            Form Pendataan Aplikasi
-        </h2>
+                <div class="list-item">
+                    <a href="list.php">
+                    <img src="CSS/img/checklist-icon-checklist-icon-png-list-icon-7.png" alt="" class="icon2" width="20px">
+                        <span class="desk-header">List Data</span>
+                    </a>
+                </div>
 
-        <form action="" method="post">
+                <div class="list-item">
+                    <a href="upload.php">
+                    <img src="CSS/img/upload.png" alt="" class="icon2" width="20px">
+                        <span class="desk-header">Upload Data</span>
+                    </a>
+                </div>
 
-        <div class="box">
-            <table border="0" class="tabel-form">
-                <tr>
-                    <td> Nama Applikasi</td>
-                    <td>:</td>
-                    <td>
-                        <input type="text" name="nama_aplikasi" class="input-control">
-                    </td>
-                </tr>
-                <tr>
-                    <td> Deskripsi </td>
-                    <td>:</td>
-                    <td>
-                    <textarea id="deskripsi_aplikasi" name="deskripsi_aplikasi" rows="4" cols="50" class="input-deks"></textarea>
-                    </td>
-                </tr>
-                <tr>
-                    <td> Tanggal Pembuatan </td>
-                    <td>:</td>
-                    <td>
-                        <input type="date" name="tgl_pembuatan" class="input-control">
-                    </td>
-                </tr>
-                <tr>
-                    <td> SKPD Pengampu </td>
-                    <td>:</td>
-                    <td>
-                        <input type="text" name="SKPD_pengampu" class="input-control">
-                    </td>
-                </tr>
-                <tr>
-                    <td> Letak Server </td>
-                    <td>:</td>
-                    <td>
-                        <input type="text" name="server" class="input-control">
-                    </td>
-                </tr>
-                <tr>
-                    <td> IP Server </td>
-                    <td>:</td>
-                    <td>
-                        <input type="text" name="ip_server" class="input-control">
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td>
-                        <input type="submit" name="submit" class="btn-simpan" value="Simpan">
-                    </td>
-                </tr>
+                <div class="list-item">
+                    <a href="cetak.php">
+                    <img src="CSS/img/printer-printing-a-picture-of-a-landscape_icon-icons.com_56236.png" alt="" class="icon2" width="20px">
+                        <span class="desk-header">Cetak</span>
+                    </a>
+                </div>
 
-            </table>
+                <div class="keluar">
+                    <a href="login.php">
+                        
+                        <span class="btn-keluar">Keluar</span>
+                    </a>
+                </div>
+            </div>
         </div>
 
-        </form>
-        
+        <div class="main-content">
+            <div class="list-item">
+                <?php include 'mainbar.php'?>
+            
+            </div>
 
-    </section>
+        </div>
+    </div>
     
+    <script> scr="script.js"</script>
 </body>
 </html>

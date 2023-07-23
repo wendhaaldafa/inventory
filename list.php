@@ -58,7 +58,7 @@
                     <th><?php echo $row["server"] ?></th>
                     <th><?php echo $row["ip_server"] ?></th>
                     <th>
-                        <a href="tambah.php <?php echo '?y=' .$y; ?>" >Edit</a>
+                        <a href="tambah.php? id_aplikasi=<?php echo '?y=' .$y; ?>" >Edit</a>
                         <a href="hapus.php?id=<?php echo $row["nama_aplikasi"] ?>" onclick="return confirm('Yakin')">Hapus</a>
                     </th>
                     </tr>
@@ -70,7 +70,6 @@
                 
               </tbody> 
             </table>
-            <a href="index.php" class="btn-simpan">Home</a> 
         </div>
         <br>
         
