@@ -2,8 +2,14 @@
     margin: 0;
     padding: 0;
     font-family: 'Ubuntu', sans-serif;
-    
-    
+    font-family: 'Quicksand', sans-serif;
+}
+
+body {
+    background-image: url(img/kominfo-33.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:cover;
 }
 
 .container {
@@ -12,7 +18,7 @@
 }
 
 .sidebar {
-    background-color: darkgrey;
+    background-color: #d9d9d9;
     width: 260px;
     padding: 24px;
     display: flex;
@@ -35,7 +41,13 @@
     font-size: 18px;
     line-height: 16px;
     text-align: center;
-    color: #ffffff;
+    color: #000000;
+}
+
+.sidebar .header-line {
+    border: 1px solid;
+    margin-bottom: 20px;
+    color: darkgray;
 }
 
 .sidebar .header .logo2 {
@@ -58,16 +70,16 @@
     width: 212px;
     height: 40px;
     border-radius: 8px;
-    margin-top: 20px;
+    margin-top: 5px;
 }
 
 .sidebar .main .list-item .desk-header {
     font-style: normal;
-    font-weight: 400;
+    font-weight: 500;
     font-size: 16px;
     line-height: 16px;
     text-align: center;
-    color: #ffffff;
+    color: #000000;
 }
 
 .sidebar .main .list-item {
@@ -81,22 +93,19 @@
     height: 40px;
 }
 
-.sidebar .main .list-item .icon {
-    margin-right: 12px;
-}
-
 .sidebar .main .list-item:hover {
     background-color: orange;
     transition: all ease-in .2s
 }
 
 .sidebar .main .keluar .btn-keluar {
-    font-style: bold;
-    font-weight: 400;
+    font-style: normal;
+    font-weight: 500;
     font-size: 18px;
     line-height: 16px;
     text-align: center;
-    color: #ffffff;
+    color: #000000;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 .sidebar .main .keluar {
@@ -108,7 +117,7 @@
     width: 212px;
     box-sizing: border-box;
     height: 40px;
-    margin-top: 400px;
+    margin-top: 300px;
 }
 
 .sidebar .main .keluar:hover {
@@ -116,12 +125,15 @@
     transition: all ease-in .2s
 }
 
-.sidebar .main .list-item .icon2 {
-    margin-right: 12px;
-    margin-top: auto;
+.sidebar .header .logo2 {
+    width: 200px;
+    height: 100px;
+    margin-left: 50px;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
-/* main bar */
+                                        /* main bar */
 
 .heading2 {
     text-align: center;
@@ -134,14 +146,6 @@
     background-color: #ffffff;
     box-shadow: 0 0 15px;
     border-radius: 5px;
-}
-
-
-body {
-    background-image: url(img/kominfo-33.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size:cover;
 }
 
 .box-form {
@@ -161,6 +165,7 @@ body {
 
 .tabel-form {
     width: 100%;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .input-control {
@@ -170,12 +175,14 @@ body {
     border-radius: 5px;
     border: 1px solid;
     color: darkgray;
+    font-family: 'Quicksand', sans-serif;
     
 }
 
 .input-deks {
     padding: 5px 10px;
     margin: 5px 5px;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .btn-simpan {
@@ -185,11 +192,13 @@ body {
     padding: 8px 17px;
     font-size: 16px;
     margin: 5px 5px;
+    border-radius: 5px;
   }
 
-.btn-simpan :hover {
+.btn-simpan:hover {
     cursor: pointer;
-    background-color: #ffffff;
+    background-color:#7ba3cd;
+    transition: all ease-in .2s
 }
 
 .display {
@@ -199,7 +208,7 @@ body {
     
 }
 
-/* Login */
+                                            /* Login */
 
 .login {
     display: flex;
@@ -254,6 +263,12 @@ img.avatar {
     color:#ffffff;
     margin-left: 5px;
     border-radius: 5px;
+}
+
+.btn-login:hover{
+    cursor: pointer;
+    background-color: #7ba3cd;
+    transition: all ease-in .2s
 }
 
   
