@@ -13,7 +13,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sidebar</title>
+    <title>Upload</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -53,13 +53,6 @@
                 </div>
 
                 <div class="list-item">
-                    <a href="upload.php">
-                    <i class="fa-solid fa-cloud-arrow-up" style="color: #000000; margin-right: 10px;"></i>
-                        <span class="desk-header">Upload Data</span>
-                    </a>
-                </div>
-
-                <div class="list-item">
                     <a href="cetak.php">
                     <i class="fa-solid fa-print" style="color: #000000; margin-right: 10px;"></i>
                         <span class="desk-header">Cetak</span>
@@ -76,15 +69,36 @@
         </div>
 
         <div class="main-content">
-            <h3>
+        <section class="box-form">
+            <h3 class="heading">
                 Upload File
             </h3>
-
+            
             <form action="" method="post" enctype="multipart/form-data">
-                <b>File Upload</b> <input type="file" name="Namafile">
-                <input type="submit" name="proses" value="Upload">
+
+            <div class="box">
+                <table border="0" class="tabel-form">
+                <tr>
+                    <td> File Upload</td>
+                    <td>:</td>
+                    <td>
+                        <input type="file" name="Namafile" class="input-control">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>
+                    <input type="submit" name="proses" value="Upload" class="btn-simpan">
+                    </td>
+                </tr>
+            
+</table>
+            </div>
 
             </form>
+        </section>
         </div>
     
     <script> scr="script.js"</script>

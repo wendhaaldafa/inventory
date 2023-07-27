@@ -149,7 +149,12 @@ body {
 }
 
 .box-form {
-    width: 50%;
+    width: 60%;
+    margin: 100px auto;
+}
+
+.box-list {
+    width: 80%;
     margin: 100px auto;
 }
 
@@ -173,8 +178,8 @@ body {
     font-size: 15px;
     margin: 5px 5px;
     border-radius: 5px;
-    border: 1px solid;
-    color: darkgray;
+    border: 1px solid darkgrey;
+    color: #000;
     font-family: 'Quicksand', sans-serif;
     
 }

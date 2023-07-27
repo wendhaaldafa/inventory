@@ -13,7 +13,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form</title>
+    <title>List Form</title>
     <link rel="stylesheet" type="text/css" href="css/style.css";>
     <link rel="stylesheet" type="text/css" href="assets/datatable/cdn.datatables.net_1.13.5_css_jquery.dataTables.min.css";>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
@@ -54,13 +54,6 @@
                 </div>
 
                 <div class="list-item">
-                    <a href="upload.php">
-                    <i class="fa-solid fa-cloud-arrow-up" style="color: #000000; margin-right: 8px;"></i>
-                        <span class="desk-header">Upload Data</span>
-                    </a>
-                </div>
-
-                <div class="list-item">
                     <a href="cetak.php">
                     <i class="fa-solid fa-print" style="color: #000000; margin-right: 10px;"></i>
                         <span class="desk-header">Cetak</span>
@@ -80,7 +73,7 @@
     <div class="main-content">
             <div class="list-item">
             </div>
-    <section class="box-form">
+    <section class="box-list">
 
         <h2 class="heading">
             Data Aplikasi
@@ -105,20 +98,22 @@
                 <?php $y = 1 ?>
                 <?php 
                     // output data of each row
-                    while($row = mysqli_fetch_assoc($list_data)){
+                    while($row = mysqli_fetch_array($list_data)){
+                        $id_aplikasi = $row["id_aplikasi"];
                       ?>
                       <tr>
-                    <th><?php echo $y; ?></th>
-                    <th><?php echo $row["nama_aplikasi"] ?></th>
-                    <th><?php echo $row["deskripsi_aplikasi"] ?></th>
-                    <th><?php echo $row["tgl_pembuatan"] ?></th>
-                    <th><?php echo $row["SKPD_pengampu"] ?></th>
-                    <th><?php echo $row["server"] ?></th>
-                    <th><?php echo $row["ip_server"] ?></th>
-                    <th>
-                        <a href="tambah.php? id_aplikasi=<?php echo '?y=' .$y; ?>" >Edit</a>
-                        <a href="hapus.php?id=<?php echo $row["nama_aplikasi"] ?>" onclick="return confirm('Yakin')">Hapus</a>
-                    </th>
+                    <td><?php echo $y; ?></th>
+                    <td><?php echo $row["nama_aplikasi"] ?></td>
+                    <td><?php echo $row["deskripsi_aplikasi"] ?></td>
+                    <td><?php echo $row["tgl_pembuatan"] ?></td>
+                    <td><?php echo $row["SKPD_pengampu"] ?></td>
+                    <td><?php echo $row["server"] ?></td>
+                    <td><?php echo $row["ip_server"] ?></td>
+                    <td>
+                        <a href="edit.php?id_aplikasi=<?php echo $id_aplikasi; ?>" >Edit</a> ||
+                        <a href="hapus.php?id_aplikasi=<?php echo $id_aplikasi; ?>" onclick="return confirm('Yakin')">Hapus</a> ||
+                        <a href="tambah.php?id_aplikasi=0<?php echo $id_aplikasi; ?>">Detail</a>
+                    </td>
                     </tr>
                       <?php
                      $y++;

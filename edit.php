@@ -1,7 +1,18 @@
-<?php
+<?php 
     include 'koneksi.php';
+         
+      $id = $_GET['id_aplikasi'];
+      $ambilData = mysqli_query($conn, "SELECT * FROM tb_inventori WHERE id_aplikasi='$id'");
+      while($row = mysqli_fetch_array($ambilData)){
+        $nama_aplikasi = $row["nama_aplikasi"];
+        $deskripsi_aplikasi = $row["deskripsi_aplikasi"];
+        $tgl_pembuatan = $row["tgl_pembuatan"];
+        $SKPD_pengampu = $row["SKPD_pengampu"];
+        $server = $row["server"];
+        $ip_server = $row["ip_server"];
+      }
 
-    if(isset($_POST['submit'])) {
+      if(isset($_POST['submit'])) {
 
         $insert = mysqli_query($conn, "insert into tb_inventori set
 
@@ -19,16 +30,16 @@
         }   
 
     }
-?>
 
+?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css";>
+    <title>Edit Data</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -81,15 +92,15 @@
                 </div>
             </div>
         </div>
+
     <!-- box Form -->
     <div class="main-content">
-            <div class="list-item">
-            </div>
     <section class="box-form">
 
         <h2 class="heading">
             Form Pendataan Aplikasi
         </h2>
+        
 
         <form action="" method="post">
 
@@ -99,58 +110,56 @@
                     <td> Nama Applikasi</td>
                     <td>:</td>
                     <td>
-                        <input type="text" name="nama_aplikasi" class="input-control">
+                        <input type="text" name="nama_aplikasi" value="<?php if($id!=0){echo $nama_aplikasi;} ?>" class="input-control">
                     </td>
                 </tr>
                 <tr>
                     <td> Deskripsi </td>
                     <td>:</td>
                     <td>
-                    <textarea id="deskripsi_aplikasi" name="deskripsi_aplikasi" rows="4" cols="50" class="input-deks"></textarea>
+                    <textarea id="deskripsi_aplikasi" name="deskripsi_aplikasi" value="<?php if($id!=0){echo $deskripsi_aplikasi;} ?>" rows="4" cols="50" class="input-deks"></textarea>
                     </td>
                 </tr>
                 <tr>
                     <td> Tanggal Pembuatan </td>
                     <td>:</td>
                     <td>
-                        <input type="date" name="tgl_pembuatan" class="input-control">
+                        <input type="date" name="tgl_pembuatan" value="<?php if($id!=0){echo $tgl_pembuatan;} ?>" class="input-control">
                     </td>
                 </tr>
                 <tr>
                     <td> SKPD Pengampu </td>
                     <td>:</td>
                     <td>
-                        <input type="text" name="SKPD_pengampu" class="input-control">
+                        <input type="text" name="SKPD_pengampu" value="<?php if($id!=0){echo $SKPD_pengampu;} ?>" class="input-control">
                     </td>
                 </tr>
                 <tr>
                     <td> Letak Server </td>
                     <td>:</td>
                     <td>
-                        <input type="text" name="server" class="input-control">
+                        <input type="text" name="server" value="<?php if($id!=0){echo $server;} ?>" class="input-control">
                     </td>
                 </tr>
                 <tr>
                     <td> IP Server </td>
                     <td>:</td>
                     <td>
-                        <input type="text" name="ip_server" class="input-control">
+                        <input type="text" name="ip_server" value="<?php if($id!=0){echo $ip_server;} ?>" class="input-control">
                     </td>
                 </tr>
                 <tr>
                     <td></td>
                     <td></td>
                     <td>
+                        <a href="list.php"><input type="button" class="btn-simpan" value="Kembali"></a>
                         <input type="submit" name="submit" class="btn-simpan" value="Simpan">
                     </td>
                 </tr>
 
             </table>
         </div>
-
         </form>
-        
-
     </section>
     </div>
 </body>

@@ -44,13 +44,6 @@
                 </div>
 
                 <div class="list-item">
-                    <a href="upload.php">
-                    <i class="fa-solid fa-cloud-arrow-up" style="color: #000000; margin-right: 8px;"></i>
-                        <span class="desk-header">Upload Data</span>
-                    </a>
-                </div>
-
-                <div class="list-item">
                     <a href="cetak.php">
                     <i class="fa-solid fa-print" style="color: #000000; margin-right: 10px;"></i>
                         <span class="desk-header">Cetak</span>
