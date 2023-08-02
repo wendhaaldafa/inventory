@@ -1,30 +1,10 @@
-<?php
-    include 'koneksi.php';
-
-    if(isset($_POST['submit'])) {
-
-        $insert = mysqli_query($conn, "insert into tb_datadukung set
-
-        nama_data = '$_POST[nama_data]',
-        file = '$_POST[file]',
-        ");
-
-        if($insert) {
-            echo '<script>window.location="tambahdata.php"</script>';
-        }else {
-            echo 'huft'.mysqli_error($conn);
-        }   
-
-    }
-?>
-
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload</title>
+    <title>Sidebar</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -80,49 +60,11 @@
         </div>
 
         <div class="main-content">
-        <section class="box-form">
-            
-            <form action="" method="post" enctype="multipart/form-data">
+            <div class="list-item">
 
-            <div class="box">
-                <table border="0" class="tabel-form">
-                <h3 class="heading-detail">
-                    Upload File
-                </h3>
-                <tr>
-                    <td> Nama Data Dukung</td>
-                    <td>:</td>
-                    <td>
-                        <input type="text" name="Namadata" class="input-control">
-                    </td>
-                </tr>
-
-                <tr>
-                    <td> File Upload</td>
-                    <td>:</td>
-                    <td>
-                        <input type="file" name="Namafile" class="input-control">
-                    </td>
-                </tr>
-
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td>
-                    <a href="tambahdata.php"><input type="button" value="Kembali" class="btn-kembali"></a>
-                    <input type="submit" name="submit" value="Upload" class="btn-simpan">
-                    </td>
-                </tr>
-
-            
-</table>
             </div>
-
-            </form>
-        </section>
         </div>
     
     <script> scr="script.js"</script>
 </body>
 </html>
-

@@ -30,7 +30,7 @@
 
             <div class="main">
                 <div class="list-item">
-                    <a href="mainbar.php">
+                    <a href="form.php">
                     <i class="fa-solid fa-house" style="color: #000000; margin-right: 10px;"></i>
                         <span class="desk-header">Beranda</span>
                     </a>
@@ -51,7 +51,7 @@
                 </div>
 
                 <div class="keluar">
-                    <a href="login.php">
+                    <a href="index.php">
                     <i class="fa-solid fa-right-from-bracket" style="color: #000000; margin-right: 10px;"></i>
                         <span class="btn-keluar">Keluar</span>
                     </a>

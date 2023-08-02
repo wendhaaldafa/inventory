@@ -148,7 +148,17 @@ body {
     border-radius: 5px;
 }
 
+.header-detail {
+    text-align: center;
+    color: rgb(0, 0, 0);
+}
+
 .box-form {
+    width: 80%;
+    margin: 100px auto;
+}
+
+.box-formdetail {
     width: 60%;
     margin: 100px auto;
 }
@@ -171,6 +181,19 @@ body {
 .tabel-form {
     width: 100%;
     font-family: 'Quicksand', sans-serif;
+}
+
+.tabel-detail {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.tabel-detail tr {
+    height: 50px;
+}
+
+.tabel-detail tr td {
+    width: 5px;
 }
 
 .input-control {
@@ -198,9 +221,26 @@ body {
     font-size: 16px;
     margin: 5px 5px;
     border-radius: 5px;
+    margin-bottom: 15px;
   }
 
 .btn-simpan:hover {
+    cursor: pointer;
+    background-color:#7ba3cd;
+    transition: all ease-in .2s
+}
+
+.btn-kembali {
+    background-color: #fd7a00;
+    border: none;
+    color: white;
+    padding: 8px 17px;
+    font-size: 16px;
+    margin: 5px 5px;
+    border-radius: 5px;
+  }
+
+.btn-kembali:hover {
     cursor: pointer;
     background-color:#7ba3cd;
     transition: all ease-in .2s
@@ -212,6 +252,119 @@ body {
     border: 1px solid #ddd;
     
 }
+
+.btn-edit {
+    background-color: #3d93f0;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    font-size: 13px;
+    margin: 5px 5px;
+    border-radius: 5px;
+  }
+
+.btn-edit:hover {
+    cursor: pointer;
+    background-color:#7ba3cd;
+    transition: all ease-in .2s
+}
+
+.btn-hapus {
+    background-color: #ff0000;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    font-size: 13px;
+    border-radius: 5px;
+  }
+
+.btn-hapus:hover {
+    cursor: pointer;
+    background-color:#7ba3cd;
+    transition: all ease-in .2s
+}
+
+.btn-detail {
+    background-color: #ff6200;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    font-size: 13px;
+    margin: 5px 5px;
+    border-radius: 5px;
+  }
+
+.btn-detail:hover {
+    cursor: pointer;
+    background-color:#7ba3cd;
+    transition: all ease-in .2s
+}
+
+.btn-kembali2 {
+    background-color: #ff6200;
+    border: none;
+    color: white;
+    padding: 8px 17px;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-left: 5px;
+  }
+
+.btn-kembali2:hover {
+    cursor: pointer;
+    background-color:#7ba3cd;
+    transition: all ease-in .2s
+}
+
+.btn-simpan2 {
+    background-color: #3d93f0;
+    border: none;
+    color: white;
+    padding: 8px 17px;
+    font-size: 16px;
+    margin-left: 67%;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+
+.btn-simpan2:hover {
+    cursor: pointer;
+    background-color:#7ba3cd;
+    transition: all ease-in .2s
+}
+
+.btn-dukung {
+    background-color: #ff6200;
+    border: none;
+    color: white;
+    padding: 6px 17px;
+    font-size: 13px;
+    border-radius: 5px;
+  }
+
+.btn-dukung:hover {
+    cursor: pointer;
+    background-color:#7ba3cd;
+    transition: all ease-in .2s
+}
+
+.btn-tambahdata {
+    background-color: #3d93f0;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    font-size: 13px;
+    border-radius: 5px;
+    margin: 5px 10px;
+  }
+
+.btn-tambahdata:hover {
+    cursor: pointer;
+    background-color:#7ba3cd;
+    transition: all ease-in .2s
+}
+
 
                                             /* Login */
 

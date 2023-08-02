@@ -1,70 +1,74 @@
+<?php 
+    include 'koneksi.php';
+
+    if(isset($_POST['login'])) {
+
+        $cek = mysqli_query($conn, "SELECT * FROM admin WHERE username = 
+        '".$_POST['user']."' AND password = '".md5($_POST['pass'])."' ");
+
+        if(mysqli_num_rows($cek)>0) {
+            echo '<script>window.location="dashboard.php"</script>';
+        }else {
+            echo '<script>alert("Username atau password salah")</script>';
+        }
+    }
+?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sidebar</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Login Admin</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css";>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="fontawesome-free-6.4.0-web/fontawesome-free-6.4.0-web/css/all.min.css">
 </head>
+
 <body>
-    <div class="container">
-        <div class="sidebar">
-            <div class="header">
-                    <a href="#">
-                        <span class="desk-header">Diskominfo Kab.Malang</span>
-                    </a>
-                <div class="logo2">
-                <img src="CSS/img/Logo_of_Ministry_of_Communication_and_Information_Technology_of_the_Republic_of_Indonesia.svg.png" alt="" class="icon2" width="100px">
-                </div>
-            </div>
+    <!-- main Login -->
 
-            <div class="header-line">
+    <section class="login">
 
-            </div>
-
-            <div class="main">
-                <div class="list-item">
-                    <a href="mainbar.php">
-                    <i class="fa-solid fa-house" style="color: #000000; margin-right: 10px;"></i>
-                        <span class="desk-header">Beranda</span>
-                    </a>
-                </div>
-
-                <div class="list-item">
-                    <a href="list.php">
-                    <i class="fa-solid fa-list-ul" style="color: #000000; margin-right: 10px;"></i>
-                        <span class="desk-header">List Data</span>
-                    </a>
-                </div>
-
-                <div class="list-item">
-                    <a href="cetak.php">
-                    <i class="fa-solid fa-print" style="color: #000000; margin-right: 10px;"></i>
-                        <span class="desk-header">Cetak</span>
-                    </a>
-                </div>
-
-                <div class="keluar">
-                    <a href="login.php">
-                    <i class="fa-solid fa-right-from-bracket" style="color: #000000; margin-right: 10px;"></i>
-                        <span class="btn-keluar">Keluar</span>
-                    </a>
-                </div>
-            </div>
+        <div class="imgcontainer">
+                <img src="CSS/img/logo-kominfo-.png.jpg" alt="Avatar" class="avatar">
         </div>
 
-        <div class="main-content">
-            <div class="list-item">
+        <div class="box-login">
+            <img src="CSS/img/WhatsApp Image 2023-07-19 at 20.01.27.jpg" alt="icon" class="icon">
+            <h2>Log in to your account</h2>
+            <h3>Welcome back! Please enter your details</h3>
 
+        <form action="" method="post">
+            <div class="box">
+                <table>
+                    <tr>
+                    <td>Username</td>
+                    <td>
+                        <input type="text" name="user" placeholder="Enter username" class="input-control">
+                    </td>
+                    </tr>
+
+                    <tr>
+                    <td>Password</td>
+                    <td>
+                        <input type="password" name="pass" placeholder="Enter password" class="input-control">
+                    </td>
+                    </tr>
+
+                    <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" name="login"  class="btn-login" value="Login">
+                    </td>
+                    </tr>
+                </table>
             </div>
+        </form>
+
+
         </div>
-    
-    <script> scr="script.js"</script>
+    </section>
 </body>
+        
+
 </html>

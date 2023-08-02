@@ -14,13 +14,13 @@
 
       if(isset($_POST['submit'])) {
 
-        $insert = mysqli_query($conn, "insert into tb_inventori set
+        $insert = mysqli_query($conn, "update tb_inventori set
 
         nama_aplikasi = '$_POST[nama_aplikasi]',
         deskripsi_aplikasi = '$_POST[deskripsi_aplikasi]',
         tgl_pembuatan = '$_POST[tgl_pembuatan]',
         SKPD_pengampu = '$_POST[SKPD_pengampu]',
-        server = '$_POST[server]'
+        server = '$_POST[server]' where id_aplikasi=$id
         ");
 
         if($insert) {
@@ -64,7 +64,7 @@
 
             <div class="main">
                 <div class="list-item">
-                    <a href="mainbar.php">
+                    <a href="form.php">
                     <i class="fa-solid fa-house" style="color: #000000; margin-right: 10px;"></i>
                         <span class="desk-header">Beranda</span>
                     </a>
@@ -85,7 +85,7 @@
                 </div>
 
                 <div class="keluar">
-                    <a href="login.php">
+                    <a href="index.php">
                     <i class="fa-solid fa-right-from-bracket" style="color: #000000; margin-right: 10px;"></i>
                         <span class="btn-keluar">Keluar</span>
                     </a>
@@ -117,7 +117,7 @@
                     <td> Deskripsi </td>
                     <td>:</td>
                     <td>
-                    <textarea id="deskripsi_aplikasi" name="deskripsi_aplikasi" value="<?php if($id!=0){echo $deskripsi_aplikasi;} ?>" rows="4" cols="50" class="input-deks"></textarea>
+                    <textarea id="deskripsi_aplikasi" name="deskripsi_aplikasi" rows="4" cols="50" class="input-deks"><?php if($id!=0){echo $deskripsi_aplikasi;} ?></textarea>
                     </td>
                 </tr>
                 <tr>

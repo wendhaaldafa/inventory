@@ -1,9 +1,16 @@
 <?php 
     include 'koneksi.php';
-         
-      $sql = "select * from tb_inventori";
-      $list_data = mysqli_query($conn, $sql);
 
+   $id = $_GET['id_aplikasi'];
+      $ambilData = mysqli_query($conn, "SELECT * FROM tb_inventori WHERE id_aplikasi='$id'");
+      while($row = mysqli_fetch_array($ambilData)){
+        $nama_aplikasi = $row["nama_aplikasi"];
+        $deskripsi_aplikasi = $row["deskripsi_aplikasi"];
+        $tgl_pembuatan = $row["tgl_pembuatan"];
+        $SKPD_pengampu = $row["SKPD_pengampu"];
+        $server = $row["server"];
+        $ip_server = $row["ip_server"];
+      }
 
 ?>
 
@@ -39,7 +46,7 @@
 
             <div class="main">
                 <div class="list-item">
-                    <a href="mainbar.php">
+                    <a href="form.php">
                     <i class="fa-solid fa-house" style="color: #000000; margin-right: 10px;"></i>
                         <span class="desk-header">Beranda</span>
                     </a>
@@ -60,7 +67,7 @@
                 </div>
 
                 <div class="keluar">
-                    <a href="login.php">
+                    <a href="index.php">
                     <i class="fa-solid fa-right-from-bracket" style="color: #000000; margin-right: 10px;"></i>
                         <span class="btn-keluar">Keluar</span>
                     </a>
@@ -70,69 +77,67 @@
 
      <!-- box Form -->
      <div class="main-content">
-            <div class="list-item">
-            </div>
-    <section class="box-form">
-
-        <h2 class="heading">
-            Data Aplikasi
-        </h2>
+    <section class="box-formdetail">
 
         <div class="box">
-        <table id="example" class="display" style="width:100%">
-                <thead>
+        <h2 class="header-detail">
+            Detail Aplikasi
+        </h2>
+            <table border="0" class="tabel-detail">
                 <tr>
-                    <th>No</th>
-                    <th>Nama Aplikasi</th>
-                    <th>Deskripsi Aplikasi</th>
-                    <th>Tanggal Pembuatan</th>
-                    <th>SKPD Pengampu</th>
-                    <th>Letak Server</th>
-                    <th>IP Server</th>
-                    <th>Aksi</th>
-                </tr>
-</thead>
-<tbody>
-                <?php $y = 1 ?>
-                <?php 
-                    // output data of each row
-                    while($row = mysqli_fetch_array($list_data)){
-                        $id_aplikasi = $row["id_aplikasi"];
-                      ?>
-                      <tr>
-                    <td><?php echo $y; ?></th>
-                    <td><?php echo $row["nama_aplikasi"] ?></td>
-                    <td><?php echo $row["deskripsi_aplikasi"] ?></td>
-                    <td><?php echo $row["tgl_pembuatan"] ?></td>
-                    <td><?php echo $row["SKPD_pengampu"] ?></td>
-                    <td><?php echo $row["server"] ?></td>
-                    <td><?php echo $row["ip_server"] ?></td>
+                    <td> Nama Applikasi</td>
+                    <td>:</td>
                     <td>
-                    <a href="upload.php" onclick="return">Upload Data</a>
+                        <?php if($id!=0){echo $nama_aplikasi;} ?>
                     </td>
-                    </tr>
-                      <?php
-                     $y++;
-                    }
-                 
-                ?>
+                </tr>
+                <tr>
+                    <td> Deskripsi </td>
+                    <td>:</td>
+                    <td>
+                    <?php if($id!=0){echo $deskripsi_aplikasi;} ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td> Tanggal Pembuatan </td>
+                    <td>:</td>
+                    <td>
+                        <?php if($id!=0){echo $tgl_pembuatan;} ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td> SKPD Pengampu </td>
+                    <td>:</td>
+                    <td>
+                        <?php if($id!=0){echo $SKPD_pengampu;} ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td> Letak Server </td>
+                    <td>:</td>
+                    <td>
+                        <?php if($id!=0){echo $server;} ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td> IP Server </td>
+                    <td>:</td>
+                    <td>
+                        <?php if($id!=0){echo $ip_server;} ?>
+                </tr>
                 
-              </tbody> 
-            </table>
-        </div>
-        <br>
-        
 
+            </table>
+            <div>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <a href="list.php"><input type="button" class="btn-kembali2" value="Kembali"></a>
+                        <a href="tambahdata.php"><input type="button" class="btn-simpan2" value="Data Dukung"></a>
+                    </td>
+            </div>
+        </div>
+        </form>
     </section>
     </div>
-</body>
-<footer>
-    <script src="assets/datatable/code.jquery.com_jquery-3.7.0.js"></script>
-    <script src="assets/datatable/cdn.datatables.net_1.13.5_js_jquery.dataTables.min.js"></script>
-    <script>
-$( document ).ready(function() {
-    new DataTable('#example');
-});
-    </script>
-</footer>
 </html>

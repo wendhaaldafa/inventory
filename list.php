@@ -40,7 +40,7 @@
 
             <div class="main">
                 <div class="list-item">
-                    <a href="mainbar.php">
+                    <a href="form.php">
                     <i class="fa-solid fa-house" style="color: #000000; margin-right: 10px;"></i>
                         <span class="desk-header">Beranda</span>
                     </a>
@@ -61,7 +61,7 @@
                 </div>
 
                 <div class="keluar">
-                    <a href="login.php">
+                    <a href="index.php">
                     <i class="fa-solid fa-right-from-bracket" style="color: #000000; margin-right: 10px;"></i>
                         <span class="btn-keluar">Keluar</span>
                     </a>
@@ -110,9 +110,11 @@
                     <td><?php echo $row["server"] ?></td>
                     <td><?php echo $row["ip_server"] ?></td>
                     <td>
-                        <a href="edit.php?id_aplikasi=<?php echo $id_aplikasi; ?>" >Edit</a> ||
-                        <a href="hapus.php?id_aplikasi=<?php echo $id_aplikasi; ?>" onclick="return confirm('Yakin')">Hapus</a> ||
-                        <a href="tambah.php?id_aplikasi=0<?php echo $id_aplikasi; ?>">Detail</a>
+                        <a href="edit.php?id_aplikasi=<?php echo $id_aplikasi; ?>"><input type="button" class="btn-edit" value="Edit"></a>
+                        
+                        <a href="detail.php?id_aplikasi=<?php echo $id_aplikasi; ?>"><input type="button" class="btn-detail" value="Detail"></a>
+                        
+                        <a href="hapus.php?id_aplikasi=<?php echo $id_aplikasi; ?>" onclick="return confirm('Yakin')"><input type="button" class="btn-hapus" value="Hapus"></a>
                     </td>
                     </tr>
                       <?php

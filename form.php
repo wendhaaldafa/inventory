@@ -3,14 +3,17 @@
 
     if(isset($_POST['submit'])) {
 
-        $insert = mysqli_query($conn, "insert into tb_datadukung set
+        $insert = mysqli_query($conn, "insert into tb_inventori set
 
-        nama_data = '$_POST[nama_data]',
-        file = '$_POST[file]',
+        nama_aplikasi = '$_POST[nama_aplikasi]',
+        deskripsi_aplikasi = '$_POST[deskripsi_aplikasi]',
+        tgl_pembuatan = '$_POST[tgl_pembuatan]',
+        SKPD_pengampu = '$_POST[SKPD_pengampu]',
+        server = '$_POST[server]'
         ");
 
         if($insert) {
-            echo '<script>window.location="tambahdata.php"</script>';
+            echo '<script>window.location="list.php"</script>';
         }else {
             echo 'huft'.mysqli_error($conn);
         }   
@@ -24,8 +27,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Form</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css";>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,7 +36,7 @@
     <link rel="stylesheet" href="fontawesome-free-6.4.0-web/fontawesome-free-6.4.0-web/css/all.min.css">
 </head>
 <body>
-    <div class="container">
+<div class="container">
         <div class="sidebar">
             <div class="header">
                     <a href="#">
@@ -78,51 +81,77 @@
                 </div>
             </div>
         </div>
-
-        <div class="main-content">
-        <section class="box-form">
-            
-            <form action="" method="post" enctype="multipart/form-data">
-
-            <div class="box">
-                <table border="0" class="tabel-form">
-                <h3 class="heading-detail">
-                    Upload File
-                </h3>
-                <tr>
-                    <td> Nama Data Dukung</td>
-                    <td>:</td>
-                    <td>
-                        <input type="text" name="Namadata" class="input-control">
-                    </td>
-                </tr>
-
-                <tr>
-                    <td> File Upload</td>
-                    <td>:</td>
-                    <td>
-                        <input type="file" name="Namafile" class="input-control">
-                    </td>
-                </tr>
-
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td>
-                    <a href="tambahdata.php"><input type="button" value="Kembali" class="btn-kembali"></a>
-                    <input type="submit" name="submit" value="Upload" class="btn-simpan">
-                    </td>
-                </tr>
-
-            
-</table>
+    <!-- box Form -->
+    <div class="main-content">
+            <div class="list-item">
             </div>
+    <section class="box-form">
 
-            </form>
-        </section>
+        <h2 class="heading">
+            Form Pendataan Aplikasi
+        </h2>
+
+        <form action="" method="post">
+
+        <div class="box">
+            <table border="0" class="tabel-form">
+                <tr>
+                    <td> Nama Applikasi</td>
+                    <td>:</td>
+                    <td>
+                        <input type="text" name="nama_aplikasi" class="input-control">
+                    </td>
+                </tr>
+                <tr>
+                    <td> Deskripsi </td>
+                    <td>:</td>
+                    <td>
+                    <textarea id="deskripsi_aplikasi" name="deskripsi_aplikasi" rows="4" cols="50" class="input-deks"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td> Tanggal Pembuatan </td>
+                    <td>:</td>
+                    <td>
+                        <input type="date" name="tgl_pembuatan" class="input-control">
+                    </td>
+                </tr>
+                <tr>
+                    <td> SKPD Pengampu </td>
+                    <td>:</td>
+                    <td>
+                        <input type="text" name="SKPD_pengampu" class="input-control">
+                    </td>
+                </tr>
+                <tr>
+                    <td> Letak Server </td>
+                    <td>:</td>
+                    <td>
+                        <input type="text" name="server" class="input-control">
+                    </td>
+                </tr>
+                <tr>
+                    <td> IP Server </td>
+                    <td>:</td>
+                    <td>
+                        <input type="text" name="ip_server" class="input-control">
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <input type="submit" name="submit" class="btn-simpan" value="Simpan">
+                    </td>
+                </tr>
+
+            </table>
         </div>
-    
-    <script> scr="script.js"</script>
+
+        </form>
+        
+
+    </section>
+    </div>
 </body>
 </html>
-
