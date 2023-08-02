@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 13 Jul 2023 pada 10.43
+-- Waktu pembuatan: 02 Agu 2023 pada 08.52
 -- Versi server: 10.4.21-MariaDB
 -- Versi PHP: 8.0.11
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `inventaris2`
+-- Database: `inventory`
 --
 
 -- --------------------------------------------------------
@@ -44,6 +44,18 @@ INSERT INTO `admin` (`id_admin`, `nm_admin`, `username`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `tb_datadukung`
+--
+
+CREATE TABLE `tb_datadukung` (
+  `id_data` int(11) NOT NULL,
+  `nama_data` varchar(50) NOT NULL,
+  `file` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `tb_inventori`
 --
 
@@ -62,7 +74,8 @@ CREATE TABLE `tb_inventori` (
 --
 
 INSERT INTO `tb_inventori` (`id_aplikasi`, `nama_aplikasi`, `deskripsi_aplikasi`, `tgl_pembuatan`, `SKPD_pengampu`, `server`, `ip_server`) VALUES
-(7, 'Website Desa', 'hjvjkv', '2023-07-13', 'Diskominfo', 'Server Diskominfo', 0);
+(17, 'App', 'aplikasi ini', '2023-07-27', 'kominfo', 'Diskominfo', 0),
+(20, 'App', 'aplikasi ini', '2023-07-27', 'Diskominfo malang', 'Diskominfo', 0);
 
 --
 -- Indexes for dumped tables
@@ -73,6 +86,12 @@ INSERT INTO `tb_inventori` (`id_aplikasi`, `nama_aplikasi`, `deskripsi_aplikasi`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id_admin`);
+
+--
+-- Indeks untuk tabel `tb_datadukung`
+--
+ALTER TABLE `tb_datadukung`
+  ADD PRIMARY KEY (`id_data`);
 
 --
 -- Indeks untuk tabel `tb_inventori`
@@ -91,10 +110,16 @@ ALTER TABLE `admin`
   MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT untuk tabel `tb_datadukung`
+--
+ALTER TABLE `tb_datadukung`
+  MODIFY `id_data` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT untuk tabel `tb_inventori`
 --
 ALTER TABLE `tb_inventori`
-  MODIFY `id_aplikasi` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_aplikasi` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
