@@ -10,6 +10,11 @@
         $SKPD_pengampu = $row["SKPD_pengampu"];
         $server = $row["server"];
         $ip_server = $row["ip_server"];
+        $kode_barang = $row["kode_barang"];
+        $pencipta = $row["pencipta"];
+        $asal_usul = $row["asal_usul"];
+        $status_aplikasi = $row["status_aplikasi"];
+        $keterangan = $row["keterangan"];
       }
 
 ?>
@@ -47,8 +52,8 @@
             <div class="main">
                 <div class="list-item">
                     <a href="form.php">
-                    <i class="fa-solid fa-house" style="color: #000000; margin-right: 10px;"></i>
-                        <span class="desk-header">Beranda</span>
+                    <i class="fa-solid fa-clipboard" style="color: #000000; margin-right: 10px; margin-left: 3px;"></i>
+                        <span class="desk-header">Form Aplikasi</span>
                     </a>
                 </div>
 
@@ -125,6 +130,41 @@
                     <td>
                         <?php if($id!=0){echo $ip_server;} ?>
                 </tr>
+                <tr>
+                    <td> Kode Barang </td>
+                    <td>:</td>
+                    <td>
+                        <?php if($id!=0){echo $kode_barang;} ?>                    
+                    </td>
+                </tr>
+                <tr>
+                    <td> Pencipta </td>
+                    <td>:</td>
+                    <td>
+                        <?php if($id!=0){echo $pencipta;} ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td> Asal Usul </td>
+                    <td>:</td>
+                    <td>
+                    <?php if($id!=0){echo $asal_usul;} ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td> Status Aplikasi </td>
+                    <td>:</td>
+                    <td>
+                    <?php if($id!=0){echo $status_aplikasi;} ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td> Keterangan </td>
+                    <td>:</td>
+                    <td>
+                        <?php if($id!=0){echo $keterangan;} ?>
+                    </td>
+                </tr>
                 
 
             </table>
@@ -133,7 +173,7 @@
                     <td></td>
                     <td>
                         <a href="list.php"><input type="button" class="btn-kembali2" value="Kembali"></a>
-                        <a href="tambahdata.php"><input type="button" class="btn-simpan2" value="Data Dukung"></a>
+                        <a href="tambahdata.php?id=<?php echo $id;?>&nm=<?php echo $nama_aplikasi?>"><input type="button" class="btn-simpan2" value="Data Dukung"></a>
                     </td>
             </div>
         </div>

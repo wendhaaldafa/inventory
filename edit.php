@@ -10,6 +10,11 @@
         $SKPD_pengampu = $row["SKPD_pengampu"];
         $server = $row["server"];
         $ip_server = $row["ip_server"];
+        $kode_barang = $row["kode_barang"];
+        $pencipta = $row["pencipta"];
+        $asal_usul = $row["asal_usul"];
+        $status_aplikasi = $row["status_aplikasi"];
+        $keterangan = $row["keterangan"];
       }
 
       if(isset($_POST['submit'])) {
@@ -20,7 +25,14 @@
         deskripsi_aplikasi = '$_POST[deskripsi_aplikasi]',
         tgl_pembuatan = '$_POST[tgl_pembuatan]',
         SKPD_pengampu = '$_POST[SKPD_pengampu]',
-        server = '$_POST[server]' where id_aplikasi=$id
+        server = '$_POST[server]',
+        ip_server = '$_POST[ip_server]',
+        kode_barang = '$_POST[kode_barang]',
+        pencipta = '$_POST[pencipta]',
+        asal_usul = '$_POST[asal_usul]',
+        status_aplikasi = '$_POST[status_aplikasi]',
+        keterangan = '$_POST[keterangan]' 
+        where id_aplikasi=$id
         ");
 
         if($insert) {
@@ -65,8 +77,8 @@
             <div class="main">
                 <div class="list-item">
                     <a href="form.php">
-                    <i class="fa-solid fa-house" style="color: #000000; margin-right: 10px;"></i>
-                        <span class="desk-header">Beranda</span>
+                    <i class="fa-solid fa-clipboard" style="color: #000000; margin-right: 10px; margin-left: 3px;"></i>
+                        <span class="desk-header">Form Aplikasi</span>
                     </a>
                 </div>
 
@@ -149,10 +161,46 @@
                     </td>
                 </tr>
                 <tr>
+                    <td> Kode Barang </td>
+                    <td>:</td>
+                    <td>
+                        <input type="text" name="kode_barang" value="<?php if($id!=0){echo $kode_barang;} ?>" class="input-control">
+                    </td>
+                </tr>
+                <tr>
+                    <td> Pencipta </td>
+                    <td>:</td>
+                    <td>
+                        <input type="text" name="pencipta" value="<?php if($id!=0){echo $pencipta;} ?>" class="input-control">
+                    </td>
+                </tr>
+                <tr>
+                    <td> Asal Usul </td>
+                    <td>:</td>
+                    <td>
+                        <input type="text" name="asal_usul" value="<?php if($id!=0){echo $asal_usul;} ?>" class="input-control">
+                    </td>
+                </tr>
+                <tr>
+                    <td> Status Aplikasi </td>
+                    <td>:</td>
+                    <td>
+                        <input type="radio" name="status_aplikasi" class="input-control2" value="<?php if($id!=0){echo $status_aplikasi;} ?>">Aktif
+                        <input type="radio" name="status_aplikasi" class="input-control2" value="<?php if($id!=0){echo $status_aplikasi;} ?>">Tidak Aktif
+                    </td>
+                </tr>
+                <tr>
+                    <td> Keterangan </td>
+                    <td>:</td>
+                    <td>
+                        <input type="text" name="keterangan" value="<?php if($id!=0){echo $keterangan;} ?>" class="input-control">
+                    </td>
+                </tr>
+                <tr>
                     <td></td>
                     <td></td>
                     <td>
-                        <a href="list.php"><input type="button" class="btn-simpan" value="Kembali"></a>
+                        <a href="list.php"><input type="button" class="btn-kembali" value="Kembali"></a>
                         <input type="submit" name="submit" class="btn-simpan" value="Simpan">
                     </td>
                 </tr>

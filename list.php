@@ -41,8 +41,8 @@
             <div class="main">
                 <div class="list-item">
                     <a href="form.php">
-                    <i class="fa-solid fa-house" style="color: #000000; margin-right: 10px;"></i>
-                        <span class="desk-header">Beranda</span>
+                    <i class="fa-solid fa-clipboard" style="color: #000000; margin-right: 10px; margin-left: 3px;"></i>
+                        <span class="desk-header">Form Aplikasi</span>
                     </a>
                 </div>
 
@@ -80,21 +80,24 @@
         </h2>
 
         <div class="box">
+        <tr class="btn-tambahdata">
+        <a href="form.php"><input type="button" class="btn-simpan" value="Tambah Aplikasi"></a>
+        </tr>
         
         <table id="example" class="display" style="width:100%">
-                <thead>
+            <thead>
                 <tr>
                     <th>No</th>
                     <th>Nama Aplikasi</th>
                     <th>Deskripsi Aplikasi</th>
                     <th>Tanggal Pembuatan</th>
                     <th>SKPD Pengampu</th>
-                    <th>Letak Server</th>
-                    <th>IP Server</th>
+                    <th>Status Aplikasi</th>
+                    <th>Keterangan</th>
                     <th>Aksi</th>
                 </tr>
-</thead>
-<tbody>
+            </thead>
+            <tbody>
                 <?php $y = 1 ?>
                 <?php 
                     // output data of each row
@@ -107,8 +110,8 @@
                     <td><?php echo $row["deskripsi_aplikasi"] ?></td>
                     <td><?php echo $row["tgl_pembuatan"] ?></td>
                     <td><?php echo $row["SKPD_pengampu"] ?></td>
-                    <td><?php echo $row["server"] ?></td>
-                    <td><?php echo $row["ip_server"] ?></td>
+                    <td><?php echo $row["status_aplikasi"] ?></td>
+                    <td><?php echo $row["keterangan"] ?></td>
                     <td>
                         <a href="edit.php?id_aplikasi=<?php echo $id_aplikasi; ?>"><input type="button" class="btn-edit" value="Edit"></a>
                         
@@ -125,6 +128,9 @@
                 
               </tbody> 
             </table>
+            <tr class="btn-cetak2">
+                <a href="cetak.php"><input type="button" class="btn-cetak2" value="Cetak"></a>
+            </tr>
         </div>
         <br>
         

@@ -9,7 +9,13 @@
         deskripsi_aplikasi = '$_POST[deskripsi_aplikasi]',
         tgl_pembuatan = '$_POST[tgl_pembuatan]',
         SKPD_pengampu = '$_POST[SKPD_pengampu]',
-        server = '$_POST[server]'
+        server = '$_POST[server]',
+        ip_server = '$_POST[ip_server]',
+        kode_barang = '$_POST[kode_barang]',
+        pencipta = '$_POST[pencipta]',
+        asal_usul = '$_POST[asal_usul]',
+        status_aplikasi = '$_POST[status_aplikasi]',
+        keterangan = '$_POST[keterangan]'
         ");
 
         if($insert) {
@@ -54,8 +60,8 @@
             <div class="main">
                 <div class="list-item">
                     <a href="form.php">
-                    <i class="fa-solid fa-house" style="color: #000000; margin-right: 10px;"></i>
-                        <span class="desk-header">Beranda</span>
+                    <i class="fa-solid fa-clipboard" style="color: #000000; margin-right: 10px; margin-left: 3px;"></i>
+                        <span class="desk-header">Form Aplikasi</span>
                     </a>
                 </div>
 
@@ -135,6 +141,42 @@
                     <td>:</td>
                     <td>
                         <input type="text" name="ip_server" class="input-control">
+                    </td>
+                </tr>
+                <tr>
+                    <td> Kode Barang </td>
+                    <td>:</td>
+                    <td>
+                        <input type="text" name="kode_barang" class="input-control">
+                    </td>
+                </tr>
+                <tr>
+                    <td> Pencipta </td>
+                    <td>:</td>
+                    <td>
+                        <input type="text" name="pencipta" class="input-control">
+                    </td>
+                </tr>
+                <tr>
+                    <td> Asal Usul </td>
+                    <td>:</td>
+                    <td>
+                        <input type="text" name="asal_usul" class="input-control">
+                    </td>
+                </tr>
+                <tr>
+                    <td> Status Aplikasi </td>
+                    <td>:</td>
+                    <td>
+                        <input type="radio" name="status_aplikasi" class="input-control2" value="Aktif">Aktif
+                        <input type="radio" name="status_aplikasi" class="input-control2" value="Tidak Aktif">Tidak Aktif
+                    </td>
+                </tr>
+                <tr>
+                    <td> Keterangan </td>
+                    <td>:</td>
+                    <td>
+                        <input type="text" name="keterangan" class="input-control">
                     </td>
                 </tr>
                 <tr>

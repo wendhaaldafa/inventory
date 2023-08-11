@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 02 Agu 2023 pada 08.52
--- Versi server: 10.4.21-MariaDB
--- Versi PHP: 8.0.11
+-- Waktu pembuatan: 03 Agu 2023 pada 13.49
+-- Versi server: 10.4.28-MariaDB
+-- Versi PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,7 +32,7 @@ CREATE TABLE `admin` (
   `nm_admin` varchar(50) NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `admin`
@@ -50,8 +50,16 @@ INSERT INTO `admin` (`id_admin`, `nm_admin`, `username`, `password`) VALUES
 CREATE TABLE `tb_datadukung` (
   `id_data` int(11) NOT NULL,
   `nama_data` varchar(50) NOT NULL,
-  `file` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `file` varchar(50) NOT NULL,
+  `id_aplikasi` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `tb_datadukung`
+--
+
+INSERT INTO `tb_datadukung` (`id_data`, `nama_data`, `file`, `id_aplikasi`) VALUES
+(1, 'buku manual', 'buku.pdf', 20);
 
 -- --------------------------------------------------------
 
@@ -67,7 +75,7 @@ CREATE TABLE `tb_inventori` (
   `SKPD_pengampu` varchar(50) NOT NULL,
   `server` varchar(50) NOT NULL,
   `ip_server` int(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `tb_inventori`
@@ -75,7 +83,7 @@ CREATE TABLE `tb_inventori` (
 
 INSERT INTO `tb_inventori` (`id_aplikasi`, `nama_aplikasi`, `deskripsi_aplikasi`, `tgl_pembuatan`, `SKPD_pengampu`, `server`, `ip_server`) VALUES
 (17, 'App', 'aplikasi ini', '2023-07-27', 'kominfo', 'Diskominfo', 0),
-(20, 'App', 'aplikasi ini', '2023-07-27', 'Diskominfo malang', 'Diskominfo', 0);
+(20, 'Website Desa', 'aplikasi ini', '2023-07-27', 'Diskominfo malang', 'Diskominfo', 0);
 
 --
 -- Indexes for dumped tables
@@ -113,7 +121,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT untuk tabel `tb_datadukung`
 --
 ALTER TABLE `tb_datadukung`
-  MODIFY `id_data` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_data` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_inventori`

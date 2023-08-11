@@ -207,6 +207,21 @@ body {
     
 }
 
+.input-control2 {
+    padding: 5px 10px;
+    font-size: 15px;
+    margin: 5px 5px;
+    border-radius: 5px;
+    border: 1px solid darkgrey;
+    color: #000;
+    font-family: 'Quicksand', sans-serif;
+    
+}
+
+.input-control2:hover {
+    cursor: pointer;
+} 
+
 .input-deks {
     padding: 5px 10px;
     margin: 5px 5px;
@@ -257,8 +272,8 @@ body {
     background-color: #3d93f0;
     border: none;
     color: white;
-    padding: 6px 12px;
-    font-size: 13px;
+    padding: 6px 21px;
+    font-size: 14px;
     margin: 5px 5px;
     border-radius: 5px;
   }
@@ -274,8 +289,10 @@ body {
     border: none;
     color: white;
     padding: 6px 12px;
-    font-size: 13px;
+    font-size: 14px;
+    margin: 5px 5px;
     border-radius: 5px;
+    margin-left: 3%;
   }
 
 .btn-hapus:hover {
@@ -288,8 +305,8 @@ body {
     background-color: #ff6200;
     border: none;
     color: white;
-    padding: 6px 12px;
-    font-size: 13px;
+    padding: 6px 14px;
+    font-size: 14px;
     margin: 5px 5px;
     border-radius: 5px;
   }
@@ -360,6 +377,38 @@ body {
   }
 
 .btn-tambahdata:hover {
+    cursor: pointer;
+    background-color:#7ba3cd;
+    transition: all ease-in .2s
+}
+
+.btn-cetak {
+    background-color: #3d93f0;
+    border: none;
+    color: white;
+    padding: 8px 17px;
+    font-size: 16px;
+    margin-left: 76%;
+    border-radius: 5px;
+  }
+
+.btn-cetak:hover {
+    cursor: pointer;
+    background-color:#7ba3cd;
+    transition: all ease-in .2s
+}
+
+.btn-cetak2 {
+    background-color: #ff6200;
+    border: none;
+    color: white;
+    padding: 8px 17px;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-left: 5px;
+  }
+
+.btn-cetak2:hover {
     cursor: pointer;
     background-color:#7ba3cd;
     transition: all ease-in .2s

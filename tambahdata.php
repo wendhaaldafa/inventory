@@ -1,8 +1,18 @@
 <?php 
     include 'koneksi.php';
-         
-      $sql = "select * from tb_datadukung";
+
+    $nama_aplikasi = $_GET['nm'];
+    $id = $_GET['id'];     
+      $sql = "select * from tb_datadukung where id_aplikasi=$id";
       $list_data = mysqli_query($conn, $sql);
+
+
+    if(isset($_GET['id_aplikasi'])) {
+        $delete = mysqli_query($conn, "DELETE FROM tb_datadukung
+        WHERE id_aplikasi = '".$_GET['id_aplikasi']."' ");
+
+        echo '<script>window.location="tambahdata.php"</script>';
+    }
 
 
 ?>
@@ -41,8 +51,8 @@
             <div class="main">
                 <div class="list-item">
                     <a href="form.php">
-                    <i class="fa-solid fa-house" style="color: #000000; margin-right: 10px;"></i>
-                        <span class="desk-header">Beranda</span>
+                    <i class="fa-solid fa-clipboard" style="color: #000000; margin-right: 10px; margin-left: 3px;"></i>
+                        <span class="desk-header">Form Aplikasi</span>
                     </a>
                 </div>
 
@@ -76,12 +86,15 @@
     <section class="box-list">
 
         <h2 class="heading">
-            Data Dukung
+            Data Dukung <?php echo $nama_aplikasi;?>
         </h2>
 
         <div class="box">
-        <tr class="btn-tambahdata">
-        <a href="upload.php"><input type="button" class="btn-simpan" value="Tambah Data"></a>
+        <tr>
+            <th>
+                <a href="upload.php?id=<?php echo $id;?>&nm=<?php echo $nama_aplikasi;?>"><input type="button" class="btn-simpan" value="Tambah Data"></a>
+                <a href="cetak_data_dukung.php"><input type="button" class="btn-cetak"  value="Cetak"></a>
+            </th>
         </tr>
         
         <table id="example" class="display" style="width:100%">
@@ -99,14 +112,16 @@
                     // output data of each row
                     while($row = mysqli_fetch_array($list_data)){
                         $id_aplikasi = $row["id_data"];
+                        $file = $row["file"];
                       ?>
                       <tr>
                     <td><?php echo $y; ?></th>
                     <td><?php echo $row["nama_data"] ?></td>
-                    <td><?php echo $row["file"] ?></td>
                     <td>
-                        <a href="hapus.php?id_data=<?php echo $id_aplikasi; ?>" onclick="return confirm('Yakin')" class="btn-hapus">Hapus</a>
+                        <a href="<?php echo './berkas/'.$file; ?>" target="_blank"><?php echo $file;?></a>
                     </td>
+                    <td>
+                        <a href="tambahdata.php?id_aplikasi=<?php echo $id;?>" onclick="return confirm('Yakin')"><input type="button" class="btn-hapus" value="Hapus"></a>                    </td>
                     </tr>
                       <?php
                      $y++;

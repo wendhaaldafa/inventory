@@ -1,19 +1,24 @@
 <?php
     include 'koneksi.php';
 
-    if(isset($_POST['submit'])) {
+    $id = $_GET['id'];  
+    $nama_aplikasi = $_GET['nm'];
+    
+    if(isset($_POST['upload'])) {
 
-        $insert = mysqli_query($conn, "insert into tb_datadukung set
+        $nama_data_dukung = $_POST['Namadata'];
+        $id_aplikasi = $_POST['id_aplikasi'];
+        $direktori = "berkas/";
+        $file_name = $_FILES['Namafile']['name'];
+        move_uploaded_file($_FILES['Namafile']['tmp_name'],$direktori.$file_name);
 
-        nama_data = '$_POST[nama_data]',
-        file = '$_POST[file]',
-        ");
+        $uploadData = mysqli_query($conn, "INSERT INTO tb_datadukung set file='$file_name', nama_data='$nama_data_dukung', id_aplikasi = '$id_aplikasi'");
 
-        if($insert) {
-            echo '<script>window.location="tambahdata.php"</script>';
+        if($uploadData) {
+            echo "<script>window.location='tambahdata.php?id=$id&nm=$nama_aplikasi'</script>";
         }else {
             echo 'huft'.mysqli_error($conn);
-        }   
+        } 
 
     }
 ?>
@@ -51,8 +56,8 @@
             <div class="main">
                 <div class="list-item">
                     <a href="form.php">
-                    <i class="fa-solid fa-house" style="color: #000000; margin-right: 10px;"></i>
-                        <span class="desk-header">Beranda</span>
+                    <i class="fa-solid fa-clipboard" style="color: #000000; margin-right: 10px; margin-left: 3px;"></i>
+                        <span class="desk-header">Form Aplikasi</span>
                     </a>
                 </div>
 
@@ -94,6 +99,7 @@
                     <td>:</td>
                     <td>
                         <input type="text" name="Namadata" class="input-control">
+                        <input type="hidden" name="id_aplikasi" class="input-control" value="<?php echo $id; ?>">
                     </td>
                 </tr>
 
@@ -110,7 +116,7 @@
                     <td></td>
                     <td>
                     <a href="tambahdata.php"><input type="button" value="Kembali" class="btn-kembali"></a>
-                    <input type="submit" name="submit" value="Upload" class="btn-simpan">
+                    <a href="tambahdata.php"><input type="submit" name="upload" value="Upload" class="btn-simpan"></a>
                     </td>
                 </tr>
 
