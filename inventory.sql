@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 03 Agu 2023 pada 13.49
--- Versi server: 10.4.28-MariaDB
--- Versi PHP: 8.2.4
+-- Waktu pembuatan: 14 Agu 2023 pada 07.13
+-- Versi server: 10.4.21-MariaDB
+-- Versi PHP: 8.0.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,7 +32,7 @@ CREATE TABLE `admin` (
   `nm_admin` varchar(50) NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `admin`
@@ -52,14 +52,14 @@ CREATE TABLE `tb_datadukung` (
   `nama_data` varchar(50) NOT NULL,
   `file` varchar(50) NOT NULL,
   `id_aplikasi` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `tb_datadukung`
 --
 
 INSERT INTO `tb_datadukung` (`id_data`, `nama_data`, `file`, `id_aplikasi`) VALUES
-(1, 'buku manual', 'buku.pdf', 20);
+(14, 'buku manual', '2766-2178-1-SM (1).pdf', 26);
 
 -- --------------------------------------------------------
 
@@ -74,16 +74,20 @@ CREATE TABLE `tb_inventori` (
   `tgl_pembuatan` date NOT NULL,
   `SKPD_pengampu` varchar(50) NOT NULL,
   `server` varchar(50) NOT NULL,
-  `ip_server` int(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `ip_server` int(50) NOT NULL,
+  `kode_barang` text NOT NULL,
+  `pencipta` text NOT NULL,
+  `asal_usul` text NOT NULL,
+  `status_aplikasi` enum('Aktif','Tidak Aktif') NOT NULL,
+  `keterangan` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `tb_inventori`
 --
 
-INSERT INTO `tb_inventori` (`id_aplikasi`, `nama_aplikasi`, `deskripsi_aplikasi`, `tgl_pembuatan`, `SKPD_pengampu`, `server`, `ip_server`) VALUES
-(17, 'App', 'aplikasi ini', '2023-07-27', 'kominfo', 'Diskominfo', 0),
-(20, 'Website Desa', 'aplikasi ini', '2023-07-27', 'Diskominfo malang', 'Diskominfo', 0);
+INSERT INTO `tb_inventori` (`id_aplikasi`, `nama_aplikasi`, `deskripsi_aplikasi`, `tgl_pembuatan`, `SKPD_pengampu`, `server`, `ip_server`, `kode_barang`, `pencipta`, `asal_usul`, `status_aplikasi`, `keterangan`) VALUES
+(26, 'Aplikasi Desa 2', 'ini aplikasi', '2023-08-09', 'Diskominfo malang', 'Diskominfo', 1717171717, '001', 'Orang', 'Malang', 'Aktif', 'Aplikasi masih aktif');
 
 --
 -- Indexes for dumped tables
@@ -121,13 +125,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT untuk tabel `tb_datadukung`
 --
 ALTER TABLE `tb_datadukung`
-  MODIFY `id_data` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_data` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_inventori`
 --
 ALTER TABLE `tb_inventori`
-  MODIFY `id_aplikasi` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_aplikasi` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
