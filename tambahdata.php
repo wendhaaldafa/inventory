@@ -63,13 +63,6 @@
                     </a>
                 </div>
 
-                <div class="list-item">
-                    <a href="cetak.php">
-                    <i class="fa-solid fa-print" style="color: #000000; margin-right: 10px;"></i>
-                        <span class="desk-header">Cetak</span>
-                    </a>
-                </div>
-
                 <div class="keluar">
                     <a href="index.php">
                     <i class="fa-solid fa-right-from-bracket" style="color: #000000; margin-right: 10px;"></i>
@@ -131,7 +124,7 @@
                 
               </tbody> 
             </table>
-            <a href="detail.php"><input type="button" class="btn-kembali2" value="Kembali"></a>
+            <a href="detail.php?=id_aplikasi=<?php echo $id;?>"><input type="button" class="btn-kembali2" value="Kembali"></a>
         </div>
         <br>
 

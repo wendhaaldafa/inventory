@@ -89,13 +89,6 @@
                     </a>
                 </div>
 
-                <div class="list-item">
-                    <a href="cetak.php">
-                    <i class="fa-solid fa-print" style="color: #000000; margin-right: 10px;"></i>
-                        <span class="desk-header">Cetak</span>
-                    </a>
-                </div>
-
                 <div class="keluar">
                     <a href="index.php">
                     <i class="fa-solid fa-right-from-bracket" style="color: #000000; margin-right: 10px;"></i>
