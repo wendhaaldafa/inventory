@@ -15,6 +15,11 @@
         $asal_usul = $row["asal_usul"];
         $status_aplikasi = $row["status_aplikasi"];
         $keterangan = $row["keterangan"];
+        $harga = $row["harga"];
+        $pic = $row["pic"];
+        $url = $row["url"];
+        $lisensi= $row["lisensi"];
+        $masa_aktif = $row["masa_aktif"];
       }
 
       if(isset($_POST['submit'])) {
@@ -31,7 +36,12 @@
         pencipta = '$_POST[pencipta]',
         asal_usul = '$_POST[asal_usul]',
         status_aplikasi = '$_POST[status_aplikasi]',
-        keterangan = '$_POST[keterangan]' 
+        keterangan = '$_POST[keterangan]',
+        harga = '$_POST[harga]',
+        pic = '$_POST[pic]',
+        url = '$_POST[url]',
+        lisensi = '$_POST[lisensi]',
+        masa_aktif = '$POST[masa_aktif]'
         where id_aplikasi=$id
         ");
 
@@ -75,6 +85,13 @@
             </div>
 
             <div class="main">
+            <div class="list-item">
+                    <a href="dashboard.php">
+                    <i class="fa-solid fa-house" style="color: #000000; margin-right: 8px;"></i>
+                        <span class="desk-header">Dashboard</span>
+                    </a>
+                </div>
+
                 <div class="list-item">
                     <a href="form.php">
                     <i class="fa-solid fa-clipboard" style="color: #000000; margin-right: 10px; margin-left: 3px;"></i>
@@ -101,16 +118,38 @@
     <!-- box Form -->
     <div class="main-content">
     <section class="box-form">
-
-        <h2 class="heading">
-            Form Pendataan Aplikasi
-        </h2>
-        
-
         <form action="" method="post">
-
         <div class="box">
+        <h2 class="heading">
+            Edit Data
+        </h2>
             <table border="0" class="tabel-form">
+            <tr>
+                    <td> Lisensi </td>
+                    <td>:</td>
+                    <td>
+                    <select name="lisensi" class="input-control">
+                            <?php if($lisensi == 'Lisensi'){
+                                ?>
+                                <option value="Lisensi" selected>Lisensi</option>
+                                <option value="Aplikasi">Aplikasi</option>
+                                <?php
+                            }else {
+                                ?>
+                                <option value="Lisensi">Lisensi</option>
+                                <option value="Aplikasi" selected>Aplikasi</option>
+                                <?php
+                            } ?>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td> Kode Barang </td>
+                    <td>:</td>
+                    <td>
+                        <input type="text" name="kode_barang" value="<?php if($id!=0){echo $kode_barang;} ?>" class="input-control">
+                    </td>
+                </tr>
                 <tr>
                     <td> Nama Applikasi</td>
                     <td>:</td>
@@ -133,10 +172,31 @@
                     </td>
                 </tr>
                 <tr>
-                    <td> SKPD Pengampu </td>
+                    <td> Pencipta </td>
                     <td>:</td>
                     <td>
-                        <input type="text" name="SKPD_pengampu" value="<?php if($id!=0){echo $SKPD_pengampu;} ?>" class="input-control">
+                        <input type="text" name="pencipta" value="<?php if($id!=0){echo $pencipta;} ?>" class="input-control">
+                    </td>
+                </tr>
+                <tr>
+                    <td> Asal Usul </td>
+                    <td>:</td>
+                    <td>
+                        <input type="text" name="asal_usul" value="<?php if($id!=0){echo $asal_usul;} ?>" class="input-control">
+                    </td>
+                </tr>
+                <tr>
+                    <td> Harga </td>
+                    <td>:</td>
+                    <td>
+                        <input type="number" name="harga" value="<?php if($id!=0){echo $harga;} ?>" class="input-control">
+                    </td>
+                </tr>
+                <tr>
+                    <td> URL Aplikasi </td>
+                    <td>:</td>
+                    <td>
+                        <input type="text" name="url" value="<?php if($id!=0){echo $url;} ?>" class="input-control">
                     </td>
                 </tr>
                 <tr>
@@ -154,39 +214,50 @@
                     </td>
                 </tr>
                 <tr>
-                    <td> Kode Barang </td>
+                    <td> SKPD Pengampu </td>
                     <td>:</td>
                     <td>
-                        <input type="text" name="kode_barang" value="<?php if($id!=0){echo $kode_barang;} ?>" class="input-control">
-                    </td>
-                </tr>
-                <tr>
-                    <td> Pencipta </td>
-                    <td>:</td>
-                    <td>
-                        <input type="text" name="pencipta" value="<?php if($id!=0){echo $pencipta;} ?>" class="input-control">
-                    </td>
-                </tr>
-                <tr>
-                    <td> Asal Usul </td>
-                    <td>:</td>
-                    <td>
-                        <input type="text" name="asal_usul" value="<?php if($id!=0){echo $asal_usul;} ?>" class="input-control">
+                        <input type="text" name="SKPD_pengampu" value="<?php if($id!=0){echo $SKPD_pengampu;} ?>" class="input-control">
                     </td>
                 </tr>
                 <tr>
                     <td> Status Aplikasi </td>
                     <td>:</td>
                     <td>
-                        <input type="radio" name="status_aplikasi" class="input-control2" value="<?php if($id!=0){echo $status_aplikasi;} ?>">Aktif
-                        <input type="radio" name="status_aplikasi" class="input-control2" value="<?php if($id!=0){echo $status_aplikasi;} ?>">Tidak Aktif
+                        <?php 
+                        if($status_aplikasi=="Aktif"){
+                            ?>
+                            <input type="radio" name="status_aplikasi" class="input-control2" value="Aktif" checked>Aktif
+                            <input type="radio" name="status_aplikasi" class="input-control2" value="Tidak Aktif">Tidak Aktif
+                            <?php
+                        }else {
+                            ?>
+                            <input type="radio" name="status_aplikasi" class="input-control2" value="Aktif">Aktif
+                            <input type="radio" name="status_aplikasi" class="input-control2" value="Tidak Aktif" checked>Tidak Aktif
+                            <?php
+                        }
+                        ?>
+                    </td> 
+                </tr>
+                <tr>
+                    <td> PIC </td>
+                    <td>:</td>
+                    <td>
+                        <input type="text" name="pic" value="<?php if($id!=0){echo $pic;} ?>" class="input-control">
                     </td>
                 </tr>
                 <tr>
                     <td> Keterangan </td>
                     <td>:</td>
                     <td>
-                        <input type="text" name="keterangan" value="<?php if($id!=0){echo $keterangan;} ?>" class="input-control">
+                    <textarea id="keterangan" name="keterangan" rows="4" cols="50" class="input-deks"><?php if($id!=0){echo $keterangan;} ?></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td> Masa Aktif </td>
+                    <td>:</td>
+                    <td>
+                        <input type="text" name="masa_aktif" value="<?php if($id!=0){echo $masa_aktif;} ?>" class="input-control">
                     </td>
                 </tr>
                 <tr>

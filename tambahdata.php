@@ -6,13 +6,7 @@
       $sql = "select * from tb_datadukung where id_aplikasi=$id";
       $list_data = mysqli_query($conn, $sql);
 
-
-    if(isset($_GET['id_aplikasi'])) {
-        $delete = mysqli_query($conn, "DELETE FROM tb_datadukung
-        WHERE id_aplikasi = '".$_GET['id_aplikasi']."' ");
-
-        echo '<script>window.location="tambahdata.php"</script>';
-    }
+      
 
 
 ?>
@@ -23,7 +17,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>List Form</title>
+    <title>Tambah Data Dukung</title>
     <link rel="stylesheet" type="text/css" href="css/style.css";>
     <link rel="stylesheet" type="text/css" href="assets/datatable/cdn.datatables.net_1.13.5_css_jquery.dataTables.min.css";>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
@@ -49,6 +43,13 @@
             </div>
 
             <div class="main">
+            <div class="list-item">
+                    <a href="dashboard.php">
+                    <i class="fa-solid fa-house" style="color: #000000; margin-right: 8px;"></i>
+                        <span class="desk-header">Dashboard</span>
+                    </a>
+                </div>
+
                 <div class="list-item">
                     <a href="form.php">
                     <i class="fa-solid fa-clipboard" style="color: #000000; margin-right: 10px; margin-left: 3px;"></i>
@@ -77,16 +78,14 @@
             <div class="list-item">
             </div>
     <section class="box-list">
-
+        <div class="box">
         <h2 class="heading">
             Data Dukung <?php echo $nama_aplikasi;?>
         </h2>
-
-        <div class="box">
         <tr>
             <th>
                 <a href="upload.php?id=<?php echo $id;?>&nm=<?php echo $nama_aplikasi;?>"><input type="button" class="btn-simpan" value="Tambah Data"></a>
-                <a href="cetak_data_dukung.php"><input type="button" class="btn-cetak"  value="Cetak"></a>
+                <a href="cetak_data_dukung.php?id=<?php echo $id;?>&nm=<?php echo $nama_aplikasi;?>"><input type="button" class="btn-cetak"  value="Cetak"></a>
             </th>
         </tr>
         
@@ -104,7 +103,7 @@
                 <?php 
                     // output data of each row
                     while($row = mysqli_fetch_array($list_data)){
-                        $id_aplikasi = $row["id_data"];
+                        $id_dtdk = $row["id_data"];
                         $file = $row["file"];
                       ?>
                       <tr>
@@ -114,7 +113,7 @@
                         <a href="<?php echo './berkas/'.$file; ?>" target="_blank"><?php echo $file;?></a>
                     </td>
                     <td>
-                        <a href="tambahdata.php?id_aplikasi=<?php echo $id;?>" onclick="return confirm('Yakin')"><input type="button" class="btn-hapus" value="Hapus"></a>                    </td>
+                        <a href="hapus.php?id=<?php echo $id;?>&nm=<?php echo $nama_aplikasi;?>&id_dtdk=<?php echo $id_dtdk;?>" onclick="return confirm('Yakin')"><input type="button" class="btn-hapus" name="submit" value="Hapus"></a>                    </td>
                     </tr>
                       <?php
                      $y++;
@@ -124,7 +123,7 @@
                 
               </tbody> 
             </table>
-            <a href="detail.php?=id_aplikasi=<?php echo $id;?>"><input type="button" class="btn-kembali2" value="Kembali"></a>
+            <a href="detail.php?id_aplikasi=<?php echo $id;?>"><input type="button" class="btn-kembali2" value="Kembali"></a>
         </div>
         <br>
 

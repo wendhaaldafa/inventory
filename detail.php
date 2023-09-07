@@ -15,6 +15,11 @@
         $asal_usul = $row["asal_usul"];
         $status_aplikasi = $row["status_aplikasi"];
         $keterangan = $row["keterangan"];
+        $harga = $row["harga"];
+        $pic = $row["pic"];
+        $url = $row["url"];
+        $lisensi= $row["lisensi"];
+        $masa_aktif = $row["masa_aktif"];
       }
 
 ?>
@@ -24,7 +29,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>List Form</title>
+    <title>Details</title>
     <link rel="stylesheet" type="text/css" href="css/style.css";>
     <link rel="stylesheet" type="text/css" href="assets/datatable/cdn.datatables.net_1.13.5_css_jquery.dataTables.min.css";>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
@@ -50,6 +55,13 @@
             </div>
 
             <div class="main">
+            <div class="list-item">
+                    <a href="dashboard.php">
+                    <i class="fa-solid fa-house" style="color: #000000; margin-right: 8px;"></i>
+                        <span class="desk-header">Dashboard</span>
+                    </a>
+                </div>
+
                 <div class="list-item">
                     <a href="form.php">
                     <i class="fa-solid fa-clipboard" style="color: #000000; margin-right: 10px; margin-left: 3px;"></i>
@@ -83,7 +95,21 @@
         </h2>
             <table border="0" class="tabel-detail">
                 <tr>
-                    <td> Nama Applikasi</td>
+                    <td> Lisensi </td>
+                    <td>:</td>
+                    <td>
+                        <?php if($id!=0){echo $lisensi;} ?>                    
+                    </td>
+                </tr>
+                <tr>
+                    <td> Kode Barang </td>
+                    <td>:</td>
+                    <td>
+                        <?php if($id!=0){echo $kode_barang;} ?>                    
+                    </td>
+                </tr>
+                <tr>
+                    <td> Nama Barang</td>
                     <td>:</td>
                     <td>
                         <?php if($id!=0){echo $nama_aplikasi;} ?>
@@ -104,10 +130,31 @@
                     </td>
                 </tr>
                 <tr>
-                    <td> SKPD Pengampu </td>
+                    <td> Pencipta </td>
                     <td>:</td>
                     <td>
-                        <?php if($id!=0){echo $SKPD_pengampu;} ?>
+                        <?php if($id!=0){echo $pencipta;} ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td> Asal Usul </td>
+                    <td>:</td>
+                    <td>
+                    <?php if($id!=0){echo $asal_usul;} ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td> Harga </td>
+                    <td>:</td>
+                    <td>
+                    <?php if($id!=0){echo number_format($harga);} ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td> URL </td>
+                    <td>:</td>
+                    <td>
+                        <?php if($id!=0){echo $url;} ?>
                     </td>
                 </tr>
                 <tr>
@@ -124,31 +171,24 @@
                         <?php if($id!=0){echo $ip_server;} ?>
                 </tr>
                 <tr>
-                    <td> Kode Barang </td>
+                    <td> SKPD Pengampu </td>
                     <td>:</td>
                     <td>
-                        <?php if($id!=0){echo $kode_barang;} ?>                    
+                        <?php if($id!=0){echo $SKPD_pengampu;} ?>
                     </td>
                 </tr>
                 <tr>
-                    <td> Pencipta </td>
-                    <td>:</td>
-                    <td>
-                        <?php if($id!=0){echo $pencipta;} ?>
-                    </td>
-                </tr>
-                <tr>
-                    <td> Asal Usul </td>
-                    <td>:</td>
-                    <td>
-                    <?php if($id!=0){echo $asal_usul;} ?>
-                    </td>
-                </tr>
-                <tr>
-                    <td> Status Aplikasi </td>
+                    <td> Status </td>
                     <td>:</td>
                     <td>
                     <?php if($id!=0){echo $status_aplikasi;} ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td> PIC </td>
+                    <td>:</td>
+                    <td>
+                    <?php if($id!=0){echo $pic;} ?>
                     </td>
                 </tr>
                 <tr>
@@ -156,6 +196,13 @@
                     <td>:</td>
                     <td>
                         <?php if($id!=0){echo $keterangan;} ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td> Masa Aktif </td>
+                    <td>:</td>
+                    <td>
+                        <?php if($id!=0){echo $masa_aktif;} ?>
                     </td>
                 </tr>
                 

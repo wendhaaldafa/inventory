@@ -54,6 +54,13 @@
             </div>
 
             <div class="main">
+            <div class="list-item">
+                    <a href="dashboard.php">
+                    <i class="fa-solid fa-house" style="color: #000000; margin-right: 8px;"></i>
+                        <span class="desk-header">Dashboard</span>
+                    </a>
+                </div>
+
                 <div class="list-item">
                     <a href="form.php">
                     <i class="fa-solid fa-clipboard" style="color: #000000; margin-right: 10px; margin-left: 3px;"></i>
@@ -108,7 +115,7 @@
                     <td></td>
                     <td></td>
                     <td>
-                    <a href="tambahdata.php"><input type="button" value="Kembali" class="btn-kembali"></a>
+                    <a href="tambahdata.php?id=<?php echo $id;?>&nm=<?php echo $nama_aplikasi;?>"><input type="button" value="Kembali" class="btn-kembali"></a>
                     <a href="tambahdata.php"><input type="submit" name="upload" value="Upload" class="btn-simpan"></a>
                     </td>
                 </tr>

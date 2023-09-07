@@ -39,6 +39,13 @@
             </div>
 
             <div class="main">
+            <div class="list-item">
+                    <a href="dashboard.php">
+                    <i class="fa-solid fa-house" style="color: #000000; margin-right: 8px;"></i>
+                        <span class="desk-header">Dashboard</span>
+                    </a>
+                </div>
+
                 <div class="list-item">
                     <a href="form.php">
                     <i class="fa-solid fa-clipboard" style="color: #000000; margin-right: 10px; margin-left: 3px;"></i>
@@ -67,12 +74,10 @@
             <div class="list-item">
             </div>
     <section class="box-list">
-
+        <div class="box">
         <h2 class="heading">
             Data Aplikasi
         </h2>
-
-        <div class="box">
         <tr class="btn-tambahdata">
         <a href="form.php"><input type="button" class="btn-simpan" value="Tambah Aplikasi"></a>
         </tr>
