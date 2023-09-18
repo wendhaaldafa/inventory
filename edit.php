@@ -41,7 +41,7 @@
         pic = '$_POST[pic]',
         url = '$_POST[url]',
         lisensi = '$_POST[lisensi]',
-        masa_aktif = '$POST[masa_aktif]'
+        masa_aktif = '$_POST[masa_aktif]'
         where id_aplikasi=$id
         ");
 

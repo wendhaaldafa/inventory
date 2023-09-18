@@ -269,32 +269,26 @@ Highcharts.chart('container', {
         },
         series: [
             <?php
-            while($row = mysqli_fetch_array($jumlah_data_pertahun)){
-                $tahun = $row["tahun"];
-                //data chart pertahun aktif dan tidak aktif   
-                $sql_pertahun_2 = "SELECT status_aplikasi as 'status_aplikasi', count(*) as 'jumlah' FROM tb_inventori where YEAR(tgl_pembuatan)='$tahun' GROUP BY status_aplikasi";
-                $jumlah_data_pertahun_2 = mysqli_query($conn, $sql_pertahun_2);
-                
-                ?>
-                {
-                name: <?php echo $row["tahun"]; ?>,
-                id: <?php echo $row["tahun"]; ?>,
-                data: [
-                    <?php 
-                        while($row2 = mysqli_fetch_array($jumlah_data_pertahun_2)){
-                        ?>
-                    [
-                        <?php echo $row2["status_aplikasi"]; ?>,
-                        <?php echo $row2["jumlah"]; ?>
-                    ],
-                    <?php 
+                while($row = mysqli_fetch_array($jumlah_data_pertahun)){
+                    $tahun = $row["tahun"];
+                    //data chart pertahun aktif dan tidak aktif   
+                    $sql_pertahun_2 = "SELECT status_aplikasi as 'status_aplikasi', count(*) as 'jumlah' FROM tb_inventori where YEAR(tgl_pembuatan)='$tahun' GROUP BY status_aplikasi";
+                    $jumlah_data_pertahun_2 = mysqli_query($conn, $sql_pertahun_2);
+                    
+                    echo "{";
+                    echo "name: ".$row["tahun"].",";
+                    echo "id: ".$row["tahun"].",";
+                    echo "data: [";
+                            while($row2 = mysqli_fetch_array($jumlah_data_pertahun_2)){
+                        echo "[";
+                            echo $row2["status_aplikasi"].",";
+                            echo $row2["jumlah"];
+                        echo "]," ;
+                         
                         }
-                        ?>
-                ]
-            },
-                <?php
-                
-            }
+                            echo "]";
+                echo " },";
+                }
             ?>
             
             
